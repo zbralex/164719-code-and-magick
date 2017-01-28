@@ -10,8 +10,7 @@ window.renderStatistics = function (ctx, names, times) {
 	ctx.fillText('Ура! Вы Победили!', 120, 40);
 	ctx.fillText('Список результатов:', 120, 60);
 	var max = -1;
-	var min = Infinity;
-
+	
   for(var i = 0 ; i < times.length; i++ ) {  //цикл по массиву времен
     var time = times[i];
     if (time > max) {
@@ -28,8 +27,8 @@ window.renderStatistics = function (ctx, names, times) {
     var name = names[i];
     var time = times[i];
 
-    var height = step * (time - min);
-    ctx.fillText(time.toFixed(0), histoX + columnIndent * i, 90 + histoHeight);
+    var height = step * time;
+    ctx.fillText(time.toFixed(0), histoX + columnIndent * i, 90 + histoHeight - height);
 
     if (name === 'Вы') {
     	ctx.fillStyle = 'rgba(255, 0, 0, 1)';
