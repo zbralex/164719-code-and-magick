@@ -24,7 +24,7 @@ window.renderStatistics = function (ctx, names, times) {
   var step = histoHeight / max;
   var columnIndent = 90;
 
-  for ( i = 0; i < times.length; i++) {
+  for (i = 0; i < times.length; i++) {
     var name = names[i];
     time = times[i];
 
@@ -42,6 +42,3 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillText(name, histoX + columnIndent * i, 100 + histoHeight + 20);
   }
 };
-
-
-
