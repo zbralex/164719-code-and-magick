@@ -1,17 +1,18 @@
+'use strict';
 window.renderStatistics = function (ctx, names, times) {
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.7)'; //рисую тень
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.7)'; // рисую тень
   ctx.fillRect(120, 20, 420, 270);
 
-  ctx.fillStyle = '#fff';//рисую белый прямоугольник
+  ctx.fillStyle = '#fff';// рисую белый прямоугольник
   ctx.fillRect(110, 10, 420, 270);
 
-  ctx.fillStyle = '#000'; //пишу надписи в две строки
+  ctx.fillStyle = '#000'; // пишу надписи в две строки
   ctx.font = '16px PT Mono';
   ctx.fillText('Ура! Вы Победили!', 120, 40);
   ctx.fillText('Список результатов:', 120, 60);
   var max = -1;
 
-  for (var i = 0; i < times.length; i++) {  //цикл по массиву времен
+  for (var i = 0; i < times.length; i++) {  // цикл по массиву времен
     var time = times[i];
     if (time > max) {
       max = time;
@@ -23,9 +24,9 @@ window.renderStatistics = function (ctx, names, times) {
   var step = histoHeight / max;
   var columnIndent = 90;
 
-  for (var i = 0; i < times.length; i++) {
+  for ( i = 0; i < times.length; i++) {
     var name = names[i];
-    var time = times[i];
+    time = times[i];
 
     var height = step * time;
     ctx.fillText(time.toFixed(0), histoX + columnIndent * i, 90 + histoHeight - height);
@@ -41,5 +42,6 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillText(name, histoX + columnIndent * i, 100 + histoHeight + 20);
   }
 };
+
 
 
