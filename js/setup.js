@@ -1,4 +1,4 @@
-"use strict"
+'use strict';
 
 var setupOpen = document.querySelector('.setup-open');
 var setupOverlay = document.querySelector('.overlay');
