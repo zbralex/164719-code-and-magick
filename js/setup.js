@@ -25,5 +25,3 @@ var setupColorsFireballWrap = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e
 setupFireballWrap.addEventListener('click', function () {
   setupFireballWrap.style.background = setupColorsFireballWrap[Math.floor(Math.random() * setupColorsFireballWrap.length)];
 });
-
-
