@@ -5,29 +5,41 @@ var setupOverlay = document.querySelector('.overlay');
 var setupClose = document.querySelector('.setup-close');
 var ESCAPE_KEY_CODE = 27;
 var ENTER_KEY_CODE = 13;
-// открываем окно
-setupOpen.addEventListener('click', function () {
+var activateEvent = function (evt) {
+  return evt.keyCode && evt.keyCode === ENTER_KEY_CODE;
+};
+var showSetupElement = function () {
   setupOverlay.classList.remove('invisible');
+  document.addEventListener('keydown', setupKeydownHandler);
+};
+var hideSetupElement = function () {
+  setupOverlay.classList.add('invisible');
+  document.removeEventListener('keydown', setupKeydownHandler);
+};
+var setupKeydownHandler = function (evt) {
+  if (evt.keyCode === ESCAPE_KEY_CODE) { // если окно открыто, то при нажатии на esc окно закрывается
+    setupOverlay.classList.add('invisible');
+  }
+};
+
+setupOpen.addEventListener('click', function () {
+  showSetupElement();
 });
-// добавляем кейкод на клавишу enter
+
+
 setupOpen.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ENTER_KEY_CODE) {
-    setupOverlay.classList.remove('invisible');
-    document.addEventListener('keydown', function (evt) {
-      if (evt.keyCode === ESCAPE_KEY_CODE) { // если окно открыто, то при нажатии на esc окно закрывается
-        setupOverlay.classList.add('invisible');
-      }
-    });
+  if (activateEvent(evt)) {
+    showSetupElement();
   }
 });
-// закрываем окно
+
 setupClose.addEventListener('click', function () {
-  setupOverlay.classList.add('invisible');
+  hideSetupElement();
 });
-// добавляем кейкод на клавишу escape
+
 setupClose.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ESCAPE_KEY_CODE) {
-    setupOverlay.classList.add('invisible');
+  if (activateEvent(evt)) {
+    hideSetupElement();
   }
 });
 // маг
