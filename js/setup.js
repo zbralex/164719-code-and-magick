@@ -13,11 +13,11 @@ setupOpen.addEventListener('click', function () {
 setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEY_CODE) {
     setupOverlay.classList.remove('invisible');
-    document.addEventListener('keydown', function(evt){
-      if (evt.keyCode === ESCAPE_KEY_CODE){ // если окно открыто, то при нажатии на esc окно закрывается
+    document.addEventListener('keydown', function (evt) {
+      if (evt.keyCode === ESCAPE_KEY_CODE) { // если окно открыто, то при нажатии на esc окно закрывается
         setupOverlay.classList.add('invisible');
       }
-    })
+    });
   }
 });
 // закрываем окно
